@@ -23,8 +23,13 @@ export const editUserProfile = async ({ currentPassword, nickname, newPassword, 
     formData.append("password", newPassword.trim());
   }
 
+  console.log(imageFile);
+  console.log(typeof imageFile);
+
   if (imageFile) {
     formData.append("image", imageFile);
+    console.log(imageFile);
+    console.log(typeof imageFile);
   }
 
   try {

@@ -9,7 +9,7 @@ interface ProfileProps {
 }
 
 export default function Profile({ name, image, role }: ProfileProps) {
-  // const profileImgSrc = role === "BUYER" ? "/images/profile-buyer.png" : "/images/profile-seller.png";
+  const profileImgSrc = role === "BUYER" ? "/images/profile-buyer.png" : "/images/profile-seller.png";
   const roleText = role === "BUYER" ? "바이어" : "셀러";
   const href = role === "BUYER" ? "/buyer/mypage" : "/seller/stores";
 
@@ -23,8 +23,8 @@ export default function Profile({ name, image, role }: ProfileProps) {
       >
         <Image
           className="h-10 w-10 rounded-full"
-          src={image}
-          alt=""
+          src={image && image.trim() !== "" ? image : profileImgSrc}
+          alt={`${name} 프로필 이미지`}
           width={40}
           height={40}
         />

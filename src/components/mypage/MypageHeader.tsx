@@ -28,7 +28,13 @@ export default function MypageHeader() {
   return (
     <div className="border-black01 flex w-full flex-col items-center justify-center gap-7.5 border-b px-[1.875rem] pt-[1.875rem] pb-10">
       <Image
-        src={user.image}
+        src={
+          user.image && user.image.trim() !== ""
+            ? user.image
+            : user.type === "BUYER"
+              ? "/images/profile-buyer.png"
+              : "/images/profile-seller.png"
+        }
         alt={user.name}
         width={100}
         height={100}
