@@ -96,7 +96,7 @@ export default function EditProfilePage() {
           {/* 프로필 이미지 */}
           <div className="relative mb-6 h-24 w-24">
             <Image
-              src={selectedImage ? URL.createObjectURL(selectedImage) : user.image}
+              src={selectedImage ? URL.createObjectURL(selectedImage) : user.image || "/images/profile-buyer.png"}
               alt={user.name}
               width={96}
               height={96}
