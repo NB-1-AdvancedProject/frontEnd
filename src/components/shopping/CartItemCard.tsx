@@ -31,7 +31,7 @@ interface CartItemCardProps {
 }
 
 export default function CartItemCard({ item, isChecked, onCheck, onQuantityChange, onDelete }: CartItemCardProps) {
-  const discountedPrice = item.product.price * (1 - item.product.discountRate / 100);
+  const discountedPrice = item.product.discountPrice;
   const totalPrice = discountedPrice * item.quantity;
 
   return (

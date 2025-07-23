@@ -109,9 +109,7 @@ export default function ShoppingPage() {
   const total = cart
     .filter((item) => item.checked)
     .reduce((sum, item) => {
-      const price = item.product.price;
-      const discountRate = item.product.discountRate;
-      const discountedPrice = price * (1 - discountRate / 100);
+      const discountedPrice = item.product.discountPrice;
       const itemTotal = discountedPrice * item.quantity;
       return sum + itemTotal;
     }, 0);
