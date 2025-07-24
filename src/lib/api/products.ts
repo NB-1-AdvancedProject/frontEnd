@@ -36,7 +36,7 @@ export const getProducts = async (params: GetProductsParams): Promise<ProductLis
     ...rest,
     ...(priceMax && priceMax !== 0 ? { priceMax } : {}),
   };
-  const response = await axiosInstance.get("/api/products", { params: queryParams });
+  const response = await axiosInstance.get("/products", { params: queryParams });
   return response.data;
 };
 
