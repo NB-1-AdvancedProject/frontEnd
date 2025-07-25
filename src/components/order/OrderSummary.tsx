@@ -38,12 +38,10 @@ export default function OrderSummary({ onClick }: OrderSummaryProps) {
 
   // 총 상품금액 계산
   const subtotal = selectedItems.reduce((sum, item) => {
-    const price = item.product.price;
-    const discountRate = item.product.discountRate;
-    const discountedPrice = price * (1 - discountRate / 100);
-    return sum + discountedPrice * item.quantity;
+    const price = item.product.discountPrice ?? item.product.price;
+    return sum + price * item.quantity;
   }, 0);
-
+  
   // 최종 결제금액 계산 (포인트 사용 차감)
   const total = subtotal - orderInfo.usePoint;
 
